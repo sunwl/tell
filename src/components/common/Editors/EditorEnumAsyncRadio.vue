@@ -1,0 +1,28 @@
+<template>
+    <EditorEnumRadio
+        v-model="model"
+        :candidate="candidate"
+        :is-candidate-valid="!isRequest"
+        v-bind="$attrs"
+        v-on="listenersWithoutInput"
+    />
+</template>
+
+<script>
+import _props_value_mixin from './_props_value_mixin';
+import _editor_model_mixin from './_editor_model_mixin';
+import _async_candidate_mixin from './_async_candidate_mixin';
+
+export default {
+    name: 'EditorEnumAsyncRadio',
+    components: {
+        EditorEnumRadio: () => import('./EditorEnumRadio'),
+    },
+    mixins: [
+        _editor_model_mixin,
+        _async_candidate_mixin,
+        _props_value_mixin,
+    ],
+    inheritAttrs: true,
+};
+</script>
